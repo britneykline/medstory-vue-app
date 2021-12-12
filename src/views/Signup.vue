@@ -55,6 +55,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.$router.push("/login");
+          alert("You have successfully signed up");
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
