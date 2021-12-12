@@ -5,6 +5,7 @@ import Signup from '../views/Signup.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import VaccineNew from '../views/VaccineNew.vue'
+import VaccinesShow from '../views/VaccinesShow.vue'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/vaccineNew',
     name: 'vaccine-new',
     component: VaccineNew  
+  },
+  {
+    path: '/vaccines',
+    name: 'vaccines-show',
+    component: VaccinesShow    
   },
   
   {

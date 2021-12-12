@@ -3,7 +3,7 @@
     <form v-on:submit.prevent="submit()">
       <h1>Vaccine Create</h1>
       <ul>
-        <li v-for="error in erros" v-bind:key="error">{{ error }} </li>
+        <li v-for="error in errors" v-bind:key="error">{{ error }} </li>
       </ul>
       <div>
         <label>Title:</label>
@@ -11,11 +11,11 @@
         </div>
         <div>
           <label>First Dose Date:</label>
-          <input type="text" v-model="newVaccineParams.dose1_date" />
+          <input type="date" v-model="newVaccineParams.dose1_date" />
         </div>
         <div>
           <label>Second Dose Date:</label>
-          <input type="text" v-model="newVaccineParams.dose2_date" />
+          <input type="date" v-model="newVaccineParams.dose2_date" />
         </div>
         <input type="submit" value="Submit" />
     </form>

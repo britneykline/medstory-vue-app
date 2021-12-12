@@ -6,9 +6,14 @@
       <router-link to="/signup">Signup</router-link> |
       <router-link to="/login">Login</router-link> |
       <router-link to="/logout">Logout</router-link> |
-      <router-link to="/vaccineNew">Vaccine</router-link>
+      <router-link to="/vaccineNew">New Vaccine</router-link> |
+      <router-link to="/vaccines">Your Vaccine</router-link>
     </div>
+    <div class="container">
+      <!-- Logged in? {{ isLoggedIn() }} -->
+      <!-- User Id {{ getUserId() }} -->
     <router-view/>
+  </div>
   </div>
 </template>
 
@@ -47,6 +52,8 @@ export default {
     },
     getUserId: function() {
       return localStorage.getItem('user_id');
+      console.log(data);
+      
     }
   }
 }
