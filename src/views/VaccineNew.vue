@@ -64,7 +64,15 @@ export default {
       var date = new Date(this.newVaccineParams.dose1_date);
 
       console.log(date.addDays(22).toISOString().split('T')[0]);
-      this.newVaccineParams.dose2_date = date.addDays(21).toISOString().split('T')[0]
+      if (this.newVaccineParams.title == "Pfizer") {
+        this.newVaccineParams.dose2_date = date.addDays(21).toISOString().split('T')[0];
+      } 
+      if (this.newVaccineParams.title == "Moderna") {
+        this.newVaccineParams.dose2_date = date.addDays(28).toISOString().split('T')[0];
+      } 
+      if (this.newVaccineParams.title == "Johnson & Johnson") {
+        this.newVaccineParams.dose2_date = date.addDays(0).toISOString().split('T')[0];
+      } 
     }
   }
 };
