@@ -7,11 +7,16 @@
       </ul>
       <div>
         <label>Title:</label>
-          <input type="text" v-model="newVaccineParams.title" />
+          <select v-model="newVaccineParams.title">
+            <option disabled value="">Please select one</option>
+            <option>Pfizer</option>
+            <option>Moderna</option>
+            <option>Johnson & Johnson</option>
+          </select>
         </div>
         <div>
           <label>First Dose Date:</label>
-          <input type="date" v-model="newVaccineParams.dose1_date" />
+          <input type="date" v-model="newVaccineParams.dose1_date" v-on:change="addSecondDoseDate" />
         </div>
         <div>
           <label>Second Dose Date:</label>
@@ -19,6 +24,7 @@
         </div>
         <input type="submit" value="Submit" />
     </form>
+    <button v-on:click="addSecondDoseDate">hello</button> 
   </div>
 </template>
 
@@ -46,6 +52,19 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    addSecondDoseDate: function () {
+      console.log("hello")
+      Date.prototype.addDays = function(days) {
+        var date = new Date(this.valueOf());
+        date.setDate(date.getDate() + days);
+        return date;
+      }
+      console.log(this.newVaccineParams.dose1_date);
+      var date = new Date(this.newVaccineParams.dose1_date);
+
+      console.log(date.addDays(22).toISOString().split('T')[0]);
+      this.newVaccineParams.dose2_date = date.addDays(21).toISOString().split('T')[0]
     }
   }
 };
