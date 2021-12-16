@@ -37,7 +37,7 @@ export default {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("user_id", response.data.user_id);
-          this.$router.push("/test");
+          this.$router.push("/vaccines");
           alert("You have successfully logged in");
         })
         .catch((error) => {

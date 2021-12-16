@@ -1,7 +1,8 @@
 <template>
   <div class="vaccines-new">
+    <h1>New Vaccine</h1>
+    <button @click="openUploadModal">Vaccine Image</button>
     <form v-on:submit.prevent="submit()">
-      <h1>Vaccine Create</h1>
       <ul>
         <li v-for="error in errors" v-bind:key="error">{{ error }} </li>
       </ul>
@@ -22,9 +23,12 @@
           <label>Second Dose Date:</label>
           <input type="date" v-model="newVaccineParams.dose2_date" />
         </div>
-        <input type="submit" value="Submit" />
+        <p><input type="submit" value="Submit" /></p>
     </form>
-    <button v-on:click="addSecondDoseDate">hello</button> 
+    <div>
+      <img :src="newVaccineParams.vac_image" />
+    </div>
+    
   </div>
 </template>
 
@@ -36,10 +40,14 @@ export default {
       newVaccineParams: {
         title: "",
         dose1_date: "",
-        dose2_date: ""
+        dose2_date: "",
+        vac_image: ""
       },
       errors: []
     };
+  },
+  mounted() {
+
   },
   methods: {
     submit: function () {
@@ -73,7 +81,20 @@ export default {
       if (this.newVaccineParams.title == "Johnson & Johnson") {
         this.newVaccineParams.dose2_date = date.addDays(0).toISOString().split('T')[0];
       } 
+    },
+      openUploadModal() {
+        window.cloudinary.openUploadWidget(
+        { cloud_name: 'dfagfffdu',
+          upload_preset: 'jqahjptj'
+        },
+        (error, result) => {
+          if (!error && result && result.event === "success") {
+            console.log('Done uploading..: ', result.info.secure_url); 
+            this.newVaccineParams.vac_image = result.info.secure_url;
+          }
+        }).open();
     }
   }
-};
+}
 </script>
+
