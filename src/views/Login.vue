@@ -1,20 +1,33 @@
 <template>
   <div class="login">
-    <form v-on:submit.prevent="submit()">
-      <h1>Login</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="newSessionParams.email" />
+    <article id="login" class="wrapper style4">
+    <div class="container medium">
+    <header>
+      <h2>Login</h2>
+      <p>Login to view your vaccine information</p>
+    </header>
+    <div class="row">
+      <div class="col-12">
+        <form v-on:submit.prevent="submit()">
+           <ul>
+            <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+           </ul>
+            <div class="col-12">
+              <input type="text" v-model="newSessionParams.email" placeholder="Email"/>
+            </div>
+            <div class="col-12">
+              <input type="password" v-model="newSessionParams.password" placeholder="Password"/>
+            </div>
+            <div class="col-12">
+              <ul class="actions">
+                <li><input type="submit" value="Login" /></li>
+              </ul>
+            </div>
+        </form>
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="newSessionParams.password" />
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
+    </div>
+    </div>
+    </article>
   </div>
 </template>
 

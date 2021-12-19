@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <article id="contact" class="wrapper style4">
+    <article id="signup" class="wrapper style4">
     <div class="container medium">
     <header>
       <h2>Signup</h2>
