@@ -1,9 +1,37 @@
 <template>
   <div style="display: contents"> <!-- my wrapper div is rendered invisible -->
-    <h1> Daily Covid-19 Statistics </h1>
-    <iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map" width="75%" height="600px" border="1px solid black"></iframe>
-    <iframe src="https://ourworldindata.org/grapher/total-deaths-covid-19?country=USA" width="75%" height="600px" border="1px solid black"></iframe>
-    <iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map&region=NorthAmerica" width="75%" height="600px" border="1px solid black"></iframe>
-    
+
+  <article id="work" class="wrapper style2">
+  <div class="container">
+    <header>
+      <h2>Covid Statistics</h2>
+      <p></p>
+    </header>
+    <div class="row aln-center">
+      <div class="col-4 col-6-medium col-12-small">
+        <section class="box style1">
+          <h3>Worldwide Cases</h3>
+          <p><iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map" width="75%" height="600px" border="1px solid black"></iframe></p>
+        </section>
+      </div>
+      <div class="col-4 col-6-medium col-12-small">
+        <section class="box style1">
+          <h3>Cumulative US Deaths</h3>
+          <p><iframe src="https://ourworldindata.org/grapher/total-deaths-covid-19?country=USA" width="75%" height="600px" border="1px solid black"></iframe></p>
+        </section>
+      </div>
+      <div class="col-4 col-6-medium col-12-small">
+        <section class="box style1">
+          <h3>North American Cases</h3>
+          <p><iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map&region=NorthAmerica" width="75%" height="600px" border="1px solid black"></iframe>
+    </p>
+        </section>
+      </div>
+    </div>
+    <footer>
+      <p>Data provided and updated daily by Our World in Data.</p>
+    </footer>
+  </div>
+  </article>
   </div>
 </template>

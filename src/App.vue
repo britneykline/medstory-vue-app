@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Covid Statistics</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/signup">Signup</router-link> |
@@ -8,53 +8,36 @@
       <router-link to="/logout">Logout</router-link> |
       <router-link to="/vaccineNew">New Vaccine</router-link> |
       <router-link to="/vaccines">Your Vaccine</router-link>
-    </div>
-    <div class="container">
+    </div> -->
+    <!-- Nav -->
+  <nav id="nav">
+    <ul class="container">
+      <li><a href="/">Covid Statistics</a></li>
+      <li><a href="/signup">Signup</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/logout">Logout</a></li>
+      <li><a href="/vaccineNew">New Vaccine</a></li>
+      <li><a href="/vaccines">Your Vaccine</a></li>
+    </ul>
+  </nav>
+
+  <router-view />
+
+
+  <!-- Footer -->
+  <footer>
+    <ul id="copyright">
+      <li>&copy; Untitled. All rights reserved.</li>
+      <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+    </ul>
+  </footer>
+  </div>
+</article>
+    <!-- <div class="container">
       <!-- Logged in? {{ isLoggedIn() }} -->
       <!-- User Id {{ getUserId() }} -->
-    <router-view/>
-  </div>
+    <!-- </div> -->
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
-
-<script>
-export default {
-  methods: {
-    isLoggedIn: function() {      
-      if (localStorage.getItem('jwt')) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    getUserId: function() {
-      return localStorage.getItem('user_id');
-      console.log(data);
-      
-    }
-  }
-}
-</script>
+<style></style>

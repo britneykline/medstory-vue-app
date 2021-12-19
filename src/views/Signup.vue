@@ -1,33 +1,47 @@
 <template>
   <div class="signup">
-    <form v-on:submit.prevent="submit()">
-      <h1>Signup</h1>
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
-      </ul>
-      <div>
-        <label>First Name:</label>
-        <input type="text" v-model="newUserParams.f_name" /> 
+    <article id="contact" class="wrapper style4">
+    <div class="container medium">
+    <header>
+      <h2>Signup</h2>
+      <p>Create an account to keep track of your vaccine!</p>
+    </header>
+    <div class="row">
+      <div class="col-12">
+        <form v-on:submit.prevent="submit()">
+           <ul>
+            <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+           </ul>
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <input type="text" v-model="newUserParams.f_name" placeholder="First Name" />
+            </div>
+            <div class="col-6 col-12-small">
+              <input type="text" v-model="newUserParams.l_name" placeholder="Last Name" />
+            </div>
+            <div class="col-12">
+              <input type="text" v-model="newUserParams.email" placeholder="Email" />
+            </div>
+            <div class="col-12">
+              <input type="password" v-model="newUserParams.password" placeholder="Password"></input>
+            </div>
+            <div class="col-12">
+              <input type="password" v-model="newUserParams.password_confirmation" placeholder="Password Confirmation"></input>
+              <small v-if="newUserParams.password !== newUserParams.password_confirmation">Passwords must match</small>
+            </div>
+            <div class="col-12">
+              <ul class="actions">
+                <li><input type="submit" value="Create Account" /></li>
+                <li><input type="reset" value="Clear Form" class="alt" /></li>
+              </ul>
+            </div>
+          </div>
+        </form>
       </div>
-      <div>
-        <label>Last Name:</label>
-        <input type="text" v-model="newUserParams.l_name" /> 
       </div>
-      <div>
-        <label>Email:</label>
-        <input type="email" v-model="newUserParams.email" />
       </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" v-model="newUserParams.password" />
-      </div>
-      <div>
-        <label>Password confirmation:</label>
-        <input type="password" v-model="newUserParams.password_confirmation" />
-        <small v-if="newUserParams.password !== newUserParams.password_confirmation">Passwords must match</small>
-      </div>
-      <input type="submit" value="Submit" />
-    </form>
+    </article>
+    </div>
   </div>
 </template>
 
