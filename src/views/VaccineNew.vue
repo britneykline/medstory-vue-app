@@ -1,34 +1,52 @@
 <template>
-  <div class="vaccines-new">
-    <h1>New Vaccine</h1>
-    <button @click="openUploadModal">Vaccine Image</button>
-    <form v-on:submit.prevent="submit()">
-      <ul>
-        <li v-for="error in errors" v-bind:key="error">{{ error }} </li>
-      </ul>
-      <div>
-        <label>Title:</label>
-          <select v-model="newVaccineParams.title">
-            <option disabled value="">Please select one</option>
-            <option>Pfizer</option>
-            <option>Moderna</option>
-            <option>Johnson & Johnson</option>
-          </select>
-        </div>
+  <div class="New Vaccine">
+    <article id="new vaccine" class="wrapper style4">
+    <div class="container medium">
+    <header>
+      <h2>Vaccine Information</h2>
+      <p>Input vaccine information below. You have the option to include a photo of your vaccination card for your records as well!</p>
+    </header>
+    <div class="row">
+      <div class="col-12">
+        <button @click="openUploadModal">Vaccine Image</button>
+        <form v-on:submit.prevent="submit()">
+           <ul>
+            <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
+           </ul>
+          <div class="row">
+            <div class="col-6 col-12-small">
+              <h2>Title:</h2>
+                <select v-model="newVaccineParams.title">
+                  <option disabled value="">Please select one</option>
+                  <option>Pfizer</option>
+                  <option>Moderna</option>
+                  <option>Johnson & Johnson</option>
+                </select>
+            </div>
+            <div class="col-6 col-12-small">
+              <h2>First Dose Date:</h2>
+                <input type="date" v-model="newVaccineParams.dose1_date" v-on:change="addSecondDoseDate" placeholder="Date"/>
+            </div>
+            <div class="col-12">
+              <h2>Second Dose Date:</h2>
+                <input type="date" v-model="newVaccineParams.dose2_date" />
+            </div>
+            <div class="col-12">
+              <ul class="actions">
+                <li><input type="submit" value="Save Vaccine" /></li>
+                <li><input type="reset" value="Clear Form" class="alt" /></li>
+              </ul>
+            </div>
+          </div>
+        </form>
         <div>
-          <label>First Dose Date:</label>
-          <input type="date" v-model="newVaccineParams.dose1_date" v-on:change="addSecondDoseDate" />
+          <img :src="newVaccineParams.vac_image" />
         </div>
-        <div>
-          <label>Second Dose Date:</label>
-          <input type="date" v-model="newVaccineParams.dose2_date" />
-        </div>
-        <p><input type="submit" value="Submit" /></p>
-    </form>
-    <div>
-      <img :src="newVaccineParams.vac_image" />
+      </div>
+      </div>
+      </div>
+    </article>
     </div>
-    
   </div>
 </template>
 

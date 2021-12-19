@@ -170,3 +170,43 @@
         <hr />
       </div>
     </div>
+
+
+
+
+
+
+
+    <template>
+      <div class="vaccines-new">
+        <h1>New Vaccine</h1>
+        <button @click="openUploadModal">Vaccine Image</button>
+        <form v-on:submit.prevent="submit()">
+          <ul>
+            <li v-for="error in errors" v-bind:key="error">{{ error }} </li>
+          </ul>
+          <div>
+            <label>Title:</label>
+            <select v-model="newVaccineParams.title">
+              <option disabled value="">Please select one</option>
+              <option>Pfizer</option>
+              <option>Moderna</option>
+              <option>Johnson & Johnson</option>
+            </select>
+          </div>
+          <div>
+            <label>First Dose Date:</label>
+            <input type="date" v-model="newVaccineParams.dose1_date" v-on:change="addSecondDoseDate" />
+          </div>
+          <div>
+            <label>Second Dose Date:</label>
+            <input type="date" v-model="newVaccineParams.dose2_date" />
+          </div>
+          <p><input type="submit" value="Submit" /></p>
+        </form>
+        <div>
+          <img :src="newVaccineParams.vac_image" />
+        </div>
+
+      </div>
+    </template>

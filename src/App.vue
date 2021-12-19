@@ -15,9 +15,9 @@
       <li><a href="/">Covid Statistics</a></li>
       <li><a href="/signup">Signup</a></li>
       <li><a href="/login">Login</a></li>
-      <li><a href="/logout">Logout</a></li>
       <li><a href="/vaccineNew">New Vaccine</a></li>
       <li><a href="/vaccines">Your Vaccine</a></li>
+      <li><a href="/logout">Logout</a></li>
     </ul>
   </nav>
 
