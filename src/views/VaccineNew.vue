@@ -8,22 +8,22 @@
     </header>
     <div class="row">
       <div class="col-12">
-        <button @click="openUploadModal">Vaccine Image</button>
+        <p><button @click="openUploadModal">Vaccine Image</button></p>
         <form v-on:submit.prevent="submit()">
            <ul>
             <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
            </ul>
           <div class="row">
-            <div class="col-6 col-12-small">
+            <div class="col-12">
               <h2>Title:</h2>
                 <select v-model="newVaccineParams.title">
                   <option disabled value="">Please select one</option>
                   <option>Pfizer</option>
                   <option>Moderna</option>
                   <option>Johnson & Johnson</option>
-                </select>
+                </select><br>
             </div>
-            <div class="col-6 col-12-small">
+            <div class="col-12">
               <h2>First Dose Date:</h2>
                 <input type="date" v-model="newVaccineParams.dose1_date" v-on:change="addSecondDoseDate" placeholder="Date"/>
             </div>
