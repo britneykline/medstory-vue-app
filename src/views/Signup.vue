@@ -63,11 +63,9 @@ export default {
   },
   methods: {
     submit: function () {
-      console.log(this.newUserParams)
       axios
         .post("/users", this.newUserParams)
         .then((response) => {
-          console.log(response.data);
           this.$router.push("/login");
           alert("You have successfully signed up");
         })

@@ -72,7 +72,6 @@ export default {
       axios
         .post("/vaccines", this.newVaccineParams)
         .then((response) => {
-          console.log(response.data);
           this.$router.push("/vaccines");
         })
         .catch((error) => {
@@ -80,16 +79,12 @@ export default {
         });
     },
     addSecondDoseDate: function () {
-      console.log("hello")
       Date.prototype.addDays = function(days) {
         var date = new Date(this.valueOf());
         date.setDate(date.getDate() + days);
         return date;
       }
-      console.log(this.newVaccineParams.dose1_date);
       var date = new Date(this.newVaccineParams.dose1_date);
-
-      console.log(date.addDays(22).toISOString().split('T')[0]);
       if (this.newVaccineParams.title == "Pfizer") {
         this.newVaccineParams.dose2_date = date.addDays(21).toISOString().split('T')[0];
       } 

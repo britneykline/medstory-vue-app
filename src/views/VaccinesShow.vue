@@ -48,11 +48,7 @@ export default {
   },
   methods: {
     getVaccine: function() {
-      console.log('getting vaccine...')
-      // console.log(this.$route.params.id);
       axios.get(`/vaccines/${this.$route.params.id}`).then(response => {
-      // axios.get("/vaccines").then(response => {
-        console.log(response.data);
         this.vaccine = response.data;
       })
     },

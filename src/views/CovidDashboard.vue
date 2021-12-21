@@ -23,8 +23,7 @@
       <div class="col-4 col-6-medium col-12-small">
         <section class="box style1">
           <h3>North American Cases</h3>
-          <p><iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map&region=NorthAmerica" width="75%" height="600px" border="1px solid black"></iframe>
-    </p>
+          <p><iframe src="https://ourworldindata.org/grapher/total-cases-covid-19?tab=map&region=NorthAmerica" width="75%" height="600px" border="1px solid black"></iframe></p>
         </section>
       </div>
     </div>
